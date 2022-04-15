@@ -16,7 +16,7 @@ Input  : N = 5, arr[] = {2, 3, 4, 5, 6}
 Output : 0
 </pre>
 
-### Implementation
+### Method 1
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -43,6 +43,28 @@ public class Main {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+    }
+}
+```
+---
+### Method 2
+```java
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {2, 4, 1, 3, 5};
+        System.out.println(countInversions(arr));
+    }
+    public static int countInversions(int[] arr) {
+        int n = arr.length;
+        int inversions = 0;
+        for(int i=0; i<n-1; i++) {
+            for(int j=i+1; j<n; j++) {
+                if(arr[i] > arr[j]) {
+                    inversions++;
+                }
+            }
+        }
+        return inversions;
     }
 }
 ```
